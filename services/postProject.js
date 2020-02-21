@@ -6,15 +6,13 @@ const config = require('../knexfile.js');
 const db = knex(config.development);
 
 module.exports = async (project) => {
-    console.log('postProjects invoked')
     try {
         const [id] = await db('projects').insert(project)
-        
         const newProject = await db('projects')
             .select('*')
             .where({ id })
 
-        console.log('newProject', newProject)
+        newProject.completed = Boolean(newProject.completed)
         return newProject
     } catch (e) {
         console.log(e)

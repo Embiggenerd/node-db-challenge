@@ -9,7 +9,9 @@ module.exports = async () => {
     console.log('gettasks invoked')
     try {
         const tasks = await db('tasks').select('*')
-        console.log('tasks', tasks)
+        for (let i = 0; i < tasks.length; i++) {
+            tasks[i].completed = Boolean(tasks[i].completed)
+        }
         return tasks
     } catch (e) {
         return e

@@ -14,7 +14,7 @@ module.exports = async (task) => {
             .select('*')
             .where({ id })
 
-        console.log('newTask', newTask)
+        newTask.completed = Boolean(task.completed)
         return newTask
     } catch (e) {
         console.log(e)
