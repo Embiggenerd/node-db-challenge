@@ -1,6 +1,6 @@
 module.exports = {
     getProjects: require('./getProjects'),
-    // postProject: require('./postProject'),
+    postProject: require('./postProject'),
     // getTasks: require('./getTasks'),
     // postTask: require('./postTask'),
     // getResources: require('./getResources'),
