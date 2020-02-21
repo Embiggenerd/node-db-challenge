@@ -4,5 +4,5 @@ module.exports = {
     getTasks: require('./getTasks'),
     postTask: require('./postTask'),
     getResources: require('./getResources'),
-    // postResource: require('./postResource'),
+    postResource: require('./postResource'),
 }
