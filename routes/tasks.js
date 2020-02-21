@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { getTasks } = require('../services')
+const { getTasks, postTask } = require('../services')
 
 router.get('/', async (req, res, next) => {
     try {
@@ -13,4 +13,12 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.post('/', async (req, res, next) => {
+    try {
+        const task = await postTask(req.body)
+        return res.json(task)
+    } catch (e) {
+        next(e)
+    }
+})
 module.exports = router
