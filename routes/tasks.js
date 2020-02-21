@@ -1,8 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/',(req, res, next) => {
-    res.json('tasks')
+const { getTasks } = require('../services')
+
+router.get('/', async (req, res, next) => {
+    try {
+        const tasks = await getTasks()
+
+        res.json(tasks)
+    } catch (e) {
+        next(e)
+    }
 })
 
 module.exports = router
