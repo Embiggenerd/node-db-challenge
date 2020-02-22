@@ -1,5 +1,6 @@
 module.exports = {
     resourcesRouter: require('./resources'),
     projectsRouter: require('./projects'),
-    tasksRouter: require('./tasks')
+    tasksRouter: require('./tasks'),
+    notificationsRouter: require('./notifications')
 }

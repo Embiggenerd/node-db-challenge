@@ -5,4 +5,5 @@ module.exports = {
     postTask: require('./postTask'),
     getResources: require('./getResources'),
     postResource: require('./postResource'),
+    getNotifications: require('./getNotifications')
 }
