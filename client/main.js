@@ -4,12 +4,15 @@ const source = new EventSource('/notifications') // our source is the stream end
 function onLoad() {
     source.addEventListener('message', (e) => {
         const dataJSON = JSON.parse(e.data)
-        const dataSpan = document.getElementById('data')
-        console.log('lalala',dataJSON.projects.name)
-        dataSpan.innerHTML = dataJSON.projects.name
+        const project = document.getElementById('data-project-name')
+        project.innerHTML = dataJSON.projects.name
+        const resource = document.getElementById('data-resource-name')
+        resource.innerHTML = dataJSON.resources.name
+        const task = document.getElementById('data-task-description')
+        task.innerHTML = dataJSON.tasks.description
     })
 }
 
 function onUnload() {
-    source.close()
+    source.close() // Helps cleanup server side
 }

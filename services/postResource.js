@@ -1,5 +1,5 @@
 const knex = require('knex');
-
+const cache = require('../notificationsCache')
 const config = require('../knexfile.js');
 
 // we must select the development object from our knexfile
@@ -20,8 +20,7 @@ module.exports = async ({name, description, project_id}) => {
                 resource_id: id
             }
         )
-
-        console.log('newResource', newResource)
+        cache.setResources(newResource[0])
         return newResource
     } catch (e) {
         console.log(e)

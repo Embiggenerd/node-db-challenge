@@ -19,12 +19,11 @@ const state = {
     setResources(resources) {
         this.resources = resources
     },
-    setTasks(Tasks) {
-        this.Tasks = Tasks
+    setTasks(tasks) {
+        this.tasks = tasks
     },
     setProjects(projects) {
         this.projects = projects
-        console.log('newProjects', this.projects)
     }
 }
 

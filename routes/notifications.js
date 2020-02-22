@@ -8,13 +8,12 @@ router.get('/', (req, res, next) => {
     console.log('index invoked')
     try {
         res.status(200).set({
-            'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache',
-            'Connection': 'keep-alive',
+            'Content-Type': 'text/event-stream', // Specific sse type for browser
+            'Cache-Control': 'no-cache', // Helps to have fresh data
+            'Connection': 'keep-alive', // Need to keep connection open
         });
-        res.write('\n');
 
-        getNotifications(req, res, cache);
+        getNotifications(req, res, cache); // The important service
     } catch (e) {
         console.log(e)
     }
